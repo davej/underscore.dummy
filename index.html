@@ -1,0 +1,118 @@
+<!DOCTYPE html>  <html> <head>   <title>underscore.dummy.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               underscore.dummy.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>               <p>Version: <strong>0.1</strong></p>
+
+<p>Underscore.dummy is an <a href="http://documentcloud.github.com/underscore/">Underscore</a>
+extension for creating dummy content. It's useful for prototyping an
+interface when you don't have real data available.</p>
+
+<p>Copyright: <a href="http://www.davejeffery.com/">Dave Jeffery</a>, 2011.
+Underscore.dummy is freely distributable under the terms of the MIT license.</p>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h2>Extend Underscore</h2>
+
+<p>Extend underscore with the underscore.dummy functions</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">_</span><span class="p">.</span><span class="nx">mixin</span><span class="p">({</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h2>Generate <em>Lorem Ipsum</em> Text</h2>
+
+<p>Generates dummy <em>"Lorem ipsum"</em> text in words, sentences or paragraphs.</p>
+
+<p><em>API Examples:</em></p>
+
+<pre><code>_(4).loremIpsum("words")
+  -&gt; "Sed diam nonumy eirmod"
+
+_(1).loremIpsum("sentences") 
+  -&gt; "Integer ac mauris vel ligula laoreet tristique."
+
+// Outputs a string with 3 paragraphs seperated by the
+// newline character
+_(3).loremIpsum("paragraphs") 
+
+// Outputs a string with 5 paragraphs wrapped in &lt;p&gt; tags)
+_(5).loremIpsum("paragraphs", "&lt;p&gt;", "&lt;/p&gt;") 
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">loremIpsum</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">prepend</span><span class="p">,</span> <span class="nx">append</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>Each item in array represents a paragraph of <em>Lorem ipsum</em> text.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">lorem_ipsum</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Cras consequat magna ac tellus. Duis sed metus sit amet nunc faucibus blandit. Fusce tempus cursus urna. Sed bibendum, dolor et volutpat nonummy, wisi justo convallis neque, eu feugiat leo ligula nec quam. Nulla in mi. Integer ac mauris vel ligula laoreet tristique. Nunc eget tortor in diam rhoncus vehicula. Nulla quis mi. Fusce porta fringilla mauris. Vestibulum sed dolor. Aliquam tincidunt interdum arcu. Vestibulum eget lacus. Curabitur pellentesque egestas lectus. Duis dolor. Aliquam erat volutpat. Aliquam erat volutpat. Duis egestas rhoncus dui. Sed iaculis, metus et mollis tincidunt, mauris dolor ornare odio, in cursus justo felis sit amet arcu. Aenean sollicitudin. Duis lectus leo, eleifend mollis, consequat ut, venenatis at, ante.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&quot;</span>
+    <span class="p">];</span>
+    
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">&quot;words&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">words</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;sentences&quot;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+          <span class="nx">random_word</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+            
+      <span class="nx">_</span><span class="p">(</span><span class="nx">number</span> <span class="o">||</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">times</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">){</span>
+        <span class="nx">str</span> <span class="o">+=</span> <span class="nx">words</span><span class="p">[(</span><span class="nx">random_word</span><span class="o">+</span><span class="nx">i</span><span class="p">)</span><span class="o">%</span><span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+      <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Capitalize first character. Remove punctuation and superfluous space
+character at the end.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">str</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">())</span>
+          <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[\.\,]/g</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">&quot;sentences&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">sentences</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;paragraphs&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;. &quot;</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Last array item is an empty string, so remove it.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">sentences</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">random_sentence</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sentences</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+            
+      <span class="nx">_</span><span class="p">(</span><span class="nx">number</span> <span class="o">||</span> <span class="nx">sentences</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">times</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">){</span>
+        <span class="nx">str</span> <span class="o">+=</span> <span class="nx">sentences</span><span class="p">[(</span><span class="nx">random_sentence</span><span class="o">+</span><span class="nx">i</span><span class="p">)</span><span class="o">%</span><span class="nx">sentences</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;. &quot;</span><span class="p">;</span>
+      <span class="p">});</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>Remove superfluous space at the end of last sentence.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">str</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">type</span> <span class="o">==</span> <span class="s2">&quot;paragraphs&quot;</span><span class="p">)</span> <span class="p">{</span>        
+      <span class="kd">var</span> <span class="nx">random_paragraph</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">randomInt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">lorem_ipsum</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+            
+      <span class="nx">_</span><span class="p">(</span><span class="nx">number</span> <span class="o">||</span> <span class="nx">lorem_ipsum</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">times</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">){</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>Prepend and append specified strings,
+otherwise just add a newline <code>\n</code> after each paragraph.</p>             </td>             <td class="code">               <div class="highlight"><pre>        <span class="nx">str</span> <span class="o">+=</span>  <span class="p">(</span><span class="nx">prepend</span> <span class="o">||</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span>
+                <span class="nx">lorem_ipsum</span><span class="p">[(</span><span class="nx">random_paragraph</span><span class="o">+</span><span class="nx">i</span><span class="p">)</span><span class="o">%</span><span class="nx">lorem_ipsum</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">+</span>
+                <span class="p">(</span><span class="nx">append</span> <span class="o">||</span> <span class="s2">&quot;\n&quot;</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+  <span class="p">},</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <h2>Generate Random String</h2>
+
+<p>Generate a random string containing <code>length</code> (int) characters.
+Handy for creating IDs for things like short URLs.</p>
+
+<p><em>API Examples:</em></p>
+
+<pre><code>_.randomString() -&gt; "FfNtu5"
+_.randomString(8) -&gt; "KDNBTTVt"
+_.randomString(10, "abc123") -&gt; "31ab1b112c"
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">randomString</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">length</span><span class="p">,</span> <span class="nx">available_chars</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">random_num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nx">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nx">chars</span> <span class="o">=</span> <span class="nx">available_chars</span> <span class="o">||</span> <span class="s2">&quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz&quot;</span><span class="p">;</span>
+        
+    <span class="nx">_</span><span class="p">(</span><span class="nx">length</span> <span class="o">||</span> <span class="mi">6</span><span class="p">).</span><span class="nx">times</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">random_num</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">chars</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+      <span class="nx">str</span> <span class="o">+=</span> <span class="nx">chars</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">random_num</span><span class="p">,</span><span class="nx">random_num</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+  <span class="p">},</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <h2>Generate Random Integer</h2>
+
+<p>Generate a random Int between <code>min</code> (int) and <code>max</code> (int).
+Handy for file-sizes, random datetimes and lots of other things.</p>
+
+<p><em>API Examples:</em>  </p>
+
+<pre><code>_.randomInt() -&gt; 24 // Defaults to between 0 and 100
+_.randomInt(500, 1000) -&gt; 697
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">randomInt</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">((</span><span class="nx">min</span> <span class="o">||</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">number</span><span class="p">)</span> <span class="nx">number</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">||</span> <span class="mi">100</span><span class="p">));</span>      
+    <span class="k">return</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="p">},</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <h2>Generate Random Boolean</h2>
+
+<p>Generate a random Boolean (<code>true</code>/<code>false</code>).</p>
+
+<p><em>API Example:</em></p>
+
+<pre><code>_.randomBoolean() -&gt; true (50/50 chance of true/false)
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">randomBoolean</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <p>End <code>mixin</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="p">});</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
