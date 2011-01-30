@@ -7,6 +7,8 @@
 // Copyright: [Dave Jeffery](http://www.davejeffery.com/), 2011.
 // Underscore.dummy is freely distributable under the terms of the MIT license.
 
+/*global _ */
+
 // Extend Underscore
 // -----------------
 // Extend underscore with the underscore.dummy functions
@@ -19,18 +21,18 @@ _.mixin({
   //
   // _API Examples:_
   //
-  //     _(4).loremIpsum("words")
+  //     _.loremIpsum(4, "words");
   //       -> "Sed diam nonumy eirmod"
   //
-  //     _(1).loremIpsum("sentences") 
+  //     _.loremIpsum(1, "sentences");
   //       -> "Integer ac mauris vel ligula laoreet tristique."
   //
   //     // Outputs a string with 3 paragraphs seperated by the
   //     // newline character
-  //     _(3).loremIpsum("paragraphs") 
+  //     _.loremIpsum(3, "paragraphs");
   //     
   //     // Outputs a string with 5 paragraphs wrapped in <p> tags)
-  //     _(5).loremIpsum("paragraphs", "<p>", "</p>") 
+  //     _.loremIpsum(5, "paragraphs", "<p>", "</p>");
   loremIpsum: function(number, type, prepend, append) {
     var str = "",
     // Each item in array represents a paragraph of _Lorem ipsum_ text.
@@ -44,8 +46,8 @@ _.mixin({
     ];
     
 
-    if (type == "words") {
-      var words = arguments.callee(null, "sentences").split(" ");
+    if (type === "words") {
+      var words = _.loremIpsum(null, "sentences").split(" "),
           random_word = _.randomInt(0, words.length);
             
       _(number || words.length).times(function(i){
@@ -57,8 +59,8 @@ _.mixin({
           .replace(/[\.\,]/g, "").slice(0,-1);
     }
     
-    if (type == "sentences") {
-      var sentences = arguments.callee(null, "paragraphs", null, " ").split(". ");
+    if (type === "sentences") {
+      var sentences = _.loremIpsum(null, "paragraphs", null, " ").split(". ");
       // Last array item is an empty string, so remove it.
       sentences.splice(-1,1);
       var random_sentence = _.randomInt(0, sentences.length-1);
@@ -70,7 +72,7 @@ _.mixin({
       str = str.slice(0,-1);
     }
     
-    if (type == "paragraphs") {        
+    if (type === "paragraphs") {        
       var random_paragraph = _.randomInt(0, lorem_ipsum.length);
             
       _(number || lorem_ipsum.length).times(function(i){
@@ -92,9 +94,9 @@ _.mixin({
   //
   // _API Examples:_
   //
-  //     _.randomString() -> "FfNtu5"
-  //     _.randomString(8) -> "KDNBTTVt"
-  //     _.randomString(10, "abc123") -> "31ab1b112c"
+  //     _.randomString() -> "FfNtu5";
+  //     _.randomString(8) -> "KDNBTTVt";
+  //     _.randomString(10, "abc123") -> "31ab1b112c";
   randomString: function(length, available_chars) {
     var random_num = 0,
         str = "",
@@ -115,12 +117,12 @@ _.mixin({
   //
   // _API Examples:_  
   //
-  //     _.randomInt() -> 24 // Defaults to between 0 and 100
-  //     _.randomInt(500, 1000) -> 697
+  //     _.randomInt() -> 24; // Defaults to between 0 and 100
+  //     _.randomInt(500, 1000) -> 697;
   randomInt: function(min, max) {
     var number = 0;
     
-    while ((min || 1) > number) number = Math.floor(Math.random() * (max || 100));      
+    while ((min || 1) > number) { number = Math.floor(Math.random() * (max || 100)); }      
     return number;
   },
   
@@ -131,9 +133,9 @@ _.mixin({
   //
   // _API Example:_
   //
-  //     _.randomBoolean() -> true (50/50 chance of true/false)
+  //     _.randomBoolean() -> true; // (50/50 chance of true/false)
   randomBoolean: function() {
-    if (Math.random() > 0.5) return true; return false;
+    if (Math.random() > 0.5) { return true; } else { return false; }
   }
 
 // End `mixin`.
