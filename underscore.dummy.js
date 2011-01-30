@@ -12,7 +12,8 @@
 // Extend Underscore
 // -----------------
 // Extend underscore with the underscore.dummy functions
-_.mixin({
+(function(_){
+  _.mixin({
   
   // Generate _Lorem Ipsum_ Text
   // ---------------------------
@@ -139,4 +140,5 @@ _.mixin({
   }
 
 // End `mixin`.
-});
+})
+})(this._);
