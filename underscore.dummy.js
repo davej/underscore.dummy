@@ -33,8 +33,8 @@
   //     _.loremIpsum(3, "paragraphs");
   //     
   //     // Outputs a string with 5 paragraphs wrapped in <p> tags)
-  //     _.loremIpsum(5, "paragraphs", "<p>", "</p>");
-  loremIpsum: function(number, type, prepend, append) {
+  //     _.loremIpsum(5, "paragraphs", {prepend:"<p>", append:"</p>"});
+  loremIpsum: function(number, type, opts) {
     var str = "",
     // Each item in array represents a paragraph of _Lorem ipsum_ text.
     lorem_ipsum = [
@@ -44,8 +44,19 @@
       "Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
       "Cras consequat magna ac tellus. Duis sed metus sit amet nunc faucibus blandit. Fusce tempus cursus urna. Sed bibendum, dolor et volutpat nonummy, wisi justo convallis neque, eu feugiat leo ligula nec quam. Nulla in mi. Integer ac mauris vel ligula laoreet tristique. Nunc eget tortor in diam rhoncus vehicula. Nulla quis mi. Fusce porta fringilla mauris. Vestibulum sed dolor. Aliquam tincidunt interdum arcu. Vestibulum eget lacus. Curabitur pellentesque egestas lectus. Duis dolor. Aliquam erat volutpat. Aliquam erat volutpat. Duis egestas rhoncus dui. Sed iaculis, metus et mollis tincidunt, mauris dolor ornare odio, in cursus justo felis sit amet arcu. Aenean sollicitudin. Duis lectus leo, eleifend mollis, consequat ut, venenatis at, ante.",
       "Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-    ];
-    
+    ],
+    optsDefaults = {
+    	'prepend': '',
+    	'append': '\n'
+    };
+        
+    // Set undefined options to the defaults
+    if (!opts) {opts = {};}
+    Object.keys(optsDefaults).forEach(function(key) {
+  		if (opts[key] === undefined) {
+  			opts[key] = optsDefaults[key]
+  		}
+    });
 
     if (type === "words") {
       var words = _.loremIpsum(null, "sentences").split(" "),
@@ -61,7 +72,7 @@
     }
     
     if (type === "sentences") {
-      var sentences = _.loremIpsum(null, "paragraphs", null, " ").split(". ");
+      var sentences = _.loremIpsum(null, "paragraphs", { append: " " }).split(". ");
       // Last array item is an empty string, so remove it.
       sentences.splice(-1,1);
       var random_sentence = _.randomInt(0, sentences.length-1);
@@ -73,15 +84,15 @@
       str = str.slice(0,-1);
     }
     
-    if (type === "paragraphs") {        
+    if (type === "paragraphs") {          	
       var random_paragraph = _.randomInt(0, lorem_ipsum.length);
             
       _(number || lorem_ipsum.length).times(function(i){
         // Prepend and append specified strings,
         // otherwise just add a newline `\n` after each paragraph.
-        str +=  (prepend || "") +
+        str +=  opts.prepend +
                 lorem_ipsum[(random_paragraph+i)%lorem_ipsum.length] +
-                (append || "\n");
+                opts.append;
       });
     }
     return str;
@@ -121,9 +132,9 @@
   //     _.randomInt() -> 24; // Defaults to between 0 and 100
   //     _.randomInt(500, 1000) -> 697;
   randomInt: function(min, max) {
-    var number = 0;
+    var number = -1;
     
-    while ((min || 1) > number) { number = Math.floor(Math.random() * (max || 100)); }      
+    while ((min || 0) > number) { number = Math.round(Math.random() * (max || 100)); }      
     return number;
   },
   
