@@ -19,11 +19,10 @@ _API Examples:_
     _.loremIpsum(1, "sentences");
       -> "Integer ac mauris vel ligula laoreet tristique."
 
-  Outputs a string with 3 paragraphs seperated by the
-  newline character
+    // Outputs a string with 3 paragraphs seperated by the newline character
     _.loremIpsum(3, "paragraphs");
-    
-  Outputs a string with 5 paragraphs wrapped in <p> tags)
+      
+    // Outputs a string with 5 paragraphs wrapped in <p> tags)
     _.loremIpsum(5, "paragraphs", {prepend:"<p>", append:"</p>"});
 
   
